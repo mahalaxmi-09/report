@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | AI Project Closure Report Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body{
+            margin:0;
+            font-family:Arial,Helvetica,sans-serif;
+            background:#2F3148;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .login-card{
+            width:380px;
+            background:#383A54;
+border:1px solid rgba(255,255,255,.08);
+            padding:40px;
+            border-radius:20px;
+            box-shadow:0 10px 30px rgba(0,0,0,.5);
+            
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:10px;
+            color:#FFFFFF;
+        }
+
+        p{
+            text-align:center;
+            color:#B9C0D4;
+            margin-bottom:30px;
+        }
+
+        input{
+            width:100%;
+            padding:14px;
+            margin-bottom:18px;
+            border:none;
+            border-radius:10px;
+            background:#2B2E45;
+border:1px solid #4A4D68;
+            color:white;
+            font-size:15px;
+            box-sizing:border-box;
+        }
+
+        input:focus{
+            outline:none;
+border:1px solid #FFFFFF;
+box-shadow:0 0 12px rgba(255,255,255,.15);
+        }
+
+        button{
+    width:100%;
+    padding:14px;
+    background:#FFFFFF;
+    color:#2F3148;
+    font-weight:700;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+        button:hover{
+            background:#F3F4F6;
+transform:translateY(-2px);
+        }
+
+        .forgot{
+            margin-top:20px;
+            text-align:center;
+        }
+
+        .forgot a{
+            color:#22c55e;
+            text-decoration:none;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="login-card">
+
+<h1>AI Report</h1>
+
+<p>Sign in to continue</p>
+
+<input type="email" placeholder="Email">
+
+<input type="password" id="password" placeholder="Password">
+
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+
+<label style="font-size:14px;color:#D5DBE8;">
+
+<input type="checkbox" style="width:auto;margin-right:5px;">
+
+Remember Me
+
+</label>
+
+<span onclick="togglePassword()"
+style="cursor:pointer;color:#D5DBE8;font-size:14px;">
+
+👁 Show
+
+</span>
+
+</div>
+
+<button onclick="login()">Sign In</button>
+
+<div class="forgot">
+
+<a href="#">Forgot Password?</a>
+
+</div>
+
+</div>
+
+
+<script>
+function login() {
+    const email = document.querySelector('input[type="email"]').value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (email === "" || password === "") {
+        alert("Please enter Email and Password");
+        return;
+    }
+
+    localStorage.setItem("isLoggedIn", "true");
+    
+    window.location.replace("index.html");
+}
+
+function togglePassword() {
+    const password = document.getElementById("password");
+
+    if (password.type === "password") {
+        password.type = "text";
+    } else {
+        password.type = "password";
+    }
+}
+</script>
+</body>
+</html>

@@ -1,3 +1,13 @@
+if (
+    !window.location.pathname.includes("login.html") &&
+    localStorage.getItem("isLoggedIn") !== "true"
+) {
+    window.location.replace("login.html");
+}
+function logout(){
+    localStorage.removeItem("isLoggedIn");
+    window.location.replace("login.html");
+}
 // Initialize page elements when DOM loads
 document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
